@@ -38,12 +38,13 @@ namespace Hackathon
             LoggingWidget.ShowLoggingInMap = ActiveMode.No;       
             locations.Add((9.7415, 47.4125));
             locations.Add((9.7424, 50.4125));
-            locations.Add((9.7413, 47.4134));
-            locations.Add((9.7410, 47.4124));
-            locations.Add((9.7414, 47.4129));
+            locations.Add((9.7413, 40.4134));
+            locations.Add((10.7410, 47.4124));
+            locations.Add((8.7414, 47.4129));
             MapInitializen();
             mapControl.Map.Widgets.Clear();
             double bearing = CalculateBearing(locations[0].Item2, locations[0].Item1, locations[1].Item2, locations[1].Item1);
+            bearing = CalculateBearing(locations[0].Item2, locations[0].Item1, locations[2].Item2, locations[2].Item1);
             MicrobitController _microbit = new MicrobitController();         
             _microbit.Connect("COM16");             
             _microbit.SendAngle(bearing); 
@@ -99,8 +100,7 @@ namespace Hackathon
             double x = Math.Sin(dLon) * Math.Cos(lat2);
             double y = Math.Cos(lat1) * Math.Sin(lat2) - Math.Sin(lat1) * Math.Cos(lat2) * Math.Cos(dLon);
 
-            double bearing = Math.Atan2(x, y) * 180 / Math.PI;
-            MessageBox.Show($"{(bearing + 360) % 360 }");
+            double bearing = Math.Atan2(x, y) * 180 / Math.PI;         
             return (bearing + 360) % 360;
         }
 
