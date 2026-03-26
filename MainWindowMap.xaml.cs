@@ -44,9 +44,9 @@ namespace Hackathon
             locations.Add((8.7414, 47.4129));
             MapInitializen();
             mapControl.Map.Widgets.Clear();
-            double bearing = CalculateBearing(locations[0].Item2, locations[0].Item1, locations[1].Item2, locations[1].Item1);    
+            double bearing = CalculateBearing(locations[0].Item2, locations[0].Item1, locations[2].Item2, locations[2].Item1);    
             MicrobitController _microbit = new MicrobitController();         
-            _microbit.Connect("COM16");             
+            _microbit.Connect("COM3");             
             _microbit.SendAngle(bearing); 
         }
         
