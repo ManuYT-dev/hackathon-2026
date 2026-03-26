@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Bcpg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -11,6 +12,7 @@ namespace Hackathon
 {
     public class ServerData
     {
+        public WaterEntrys entrys;
         public double lat { get; set; }
         public double lon { get; set; }
         public int radius {  get; set; }
@@ -28,18 +30,15 @@ namespace Hackathon
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var client = new HttpClient();
-            var response = await client.PostAsync("http://172.23.166.43:8000/water/nearby", content);
+            var response = await client.PostAsync("http://10.72.8.47:8000/water/nearby", content);
 
             string result = await response.Content.ReadAsStringAsync();
 
-            //string fixedJson = JsonSerializer.Deserialize<string>(result);
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             };
-            WaterEntrys entrys = JsonSerializer.Deserialize<WaterEntrys>(result, options);
-            MessageBox.Show($"{entrys.found}");
-            
+            entrys = JsonSerializer.Deserialize<WaterEntrys>(result, options);
         }
     }
 }
