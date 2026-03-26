@@ -5,6 +5,9 @@
     <Compile Update="GuideEntry.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GuideTab.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainWindowMap.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

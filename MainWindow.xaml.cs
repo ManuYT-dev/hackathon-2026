@@ -38,6 +38,7 @@ namespace Hackathon
             TabMap.Width = (GridMain.ActualWidth - 5) / 2;
             StackPannelGuides.Height = GridMain.ActualHeight - 100;
             ScrawllBarGuides.Height = GridMain.ActualHeight - 100;
+            Entry1.Width = GridMain.ActualWidth - 120;
         }
     }
 }

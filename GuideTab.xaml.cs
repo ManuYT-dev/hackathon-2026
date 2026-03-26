@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Hackathon
 {
     /// <summary>
-    /// Interaktionslogik für GuideEntry.xaml
+    /// Interaktionslogik für GuideTab.xaml
     /// </summary>
-    public partial class GuideEntry : UserControl
+    public partial class GuideTab : Window
     {
-        GuideTab gt;
-        public GuideEntry()
+        public GuideTab()
         {
             InitializeComponent();
-        }
-
-        private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            gt = new GuideTab();
-            gt.ShowDialog();
         }
     }
 }
