@@ -22,8 +22,9 @@ namespace Hackathon
         {
             InitializeComponent();
             GuideEntry se = new GuideEntry("Hungry", "I am Hungry", "I AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRY");
+            se.Name = "se";
+            se.Margin = new Thickness(10, 10, 10, 0);
             StackPanellGuideEntry.Children.Add(se);
-            ServerData.GetData();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,6 @@ namespace Hackathon
             TabMap.Width = (GridMain.ActualWidth - 5) / 2;
             StackPannelGuides.Height = GridMain.ActualHeight - 100;
             ScrawllBarGuides.Height = GridMain.ActualHeight - 100;
-            Entry1.Width = GridMain.ActualWidth - 120;
         }
     }
 }

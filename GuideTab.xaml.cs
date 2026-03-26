@@ -32,8 +32,8 @@ namespace Hackathon
         {
             InitializeComponent();
             this.Titel2 = titel;
-            this.SubTitel2 = subtitel;
-            this.Text2 = text;
+            this.SubTitel2 = text;
+            this.Text2 = subtitel;
 
             Titel.Content = Titel2;
             SubTitel.Content = SubTitel2;
