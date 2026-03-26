@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Org.BouncyCastle.Pqc.Crypto.Hqc;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,10 +19,11 @@ namespace Hackathon
     public partial class MainWindow : Window
     {
         MainWindowMap mwm;
+        HandelGuide hq;
         public MainWindow()
         {
             InitializeComponent();
-            HandelGuide hq = new HandelGuide(StackPanellGuideEntry);
+            hq = new HandelGuide(StackPanellGuideEntry);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,6 +34,7 @@ namespace Hackathon
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            hq.Load("survival_tips_english.txt");
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
