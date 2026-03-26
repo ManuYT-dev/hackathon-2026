@@ -36,6 +36,9 @@ namespace Hackathon
         {
             TabGuide.Width = (GridMain.ActualWidth - 5) / 2;
             TabMap.Width = (GridMain.ActualWidth - 5) / 2;
+            StackPannelGuides.Height = GridMain.ActualHeight - 5;
+            StackPannelGuides.Width = GridMain.ActualWidth - 5;
+            StackPannelGuides.Height = GridMain.ActualHeight - 5;
         }
     }
 }

@@ -8,12 +8,23 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="Window_Loaded"
         SizeChanged="Window_SizeChanged">
+    
     <Grid x:Name="GridMain">
         <TabControl>
             <TabItem x:Name ="TabGuide" Header="Guide">
                 <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Background="Gray">
+                            <Label Content="Search" FontWeight="Bold"/>
+                            <TextBox Width="200"/>
+                        </StackPanel>
+                        <StackPanel x:Name="StackPannelGuides" Background="Red" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <ScrollBar x:Name="ScrawllBarGuides" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </TabItem>
+            
             <TabItem x:Name="TabMap" Header ="Map" HorizontalAlignment ="Center">
                 <Grid Background="#FFE5E5E5">
                     <Button Content="go to water filter" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="66" Width="109" Click="Button_Click"/>
