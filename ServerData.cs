@@ -15,10 +15,10 @@ namespace Hackathon
 {
     public class ServerData
     {
-        public string Id {  get; private set; }
+        public string Id { get; private set; }
         public string Name { get; private set; }
         public string Watertype { get; private set; }
-        public double Lat {  get; private set; }
+        public double Lat { get; private set; }
         public double Lon { get; private set; }
         public ServerData() { }
 
@@ -51,18 +51,6 @@ namespace Hackathon
             using (StreamWriter writer = new StreamWriter(localDir))
             {
                 writer.Write(JsonSerializer.Serialize(data));
-            }
-
-            using (var scp = new ScpClient(host, port, username, password))
-            {
-                scp.Connect();
-
-                using (var fs = new FileStream(localDir, FileMode.Open))
-                {
-                    scp.Upload(fs, remoteDir);
-                }
-
-                scp.Disconnect();
             }
         }
 
