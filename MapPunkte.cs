@@ -22,7 +22,7 @@ namespace Hackathon
             this.lat = lat;
         }
 
-        public PointFeature PunktErstellen(MapControl mapControl)
+        public PointFeature PunktErstellen()
         {
             var point = SphericalMercator.FromLonLat(lon, lat);
             PointFeature feature = new PointFeature(point);
