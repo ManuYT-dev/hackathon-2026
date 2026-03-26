@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.IO;
 
@@ -11,8 +8,8 @@ namespace Hackathon
 {
     public class HandelGuide
     {
-        List<GuideEntry> se;
-        StackPanel sp = new StackPanel();
+        public List<GuideEntry> seList = new List<GuideEntry>();
+        private StackPanel sp = new StackPanel();
 
         public HandelGuide(StackPanel stackpannel)
         {
@@ -28,10 +25,16 @@ namespace Hackathon
                     while (!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
-                        string[] splitted = line.Split("|");
-                        GuideEntry se = new GuideEntry(splitted[0], splitted[1], splitted[2]);
-                        se.Margin = new Thickness(10, 10, 10, 0);
-                        sp.Children.Add(se);
+                        string[] splitted = line.Split('|');
+
+                        if (splitted.Length < 3)
+                            continue;
+
+                        GuideEntry se1 = new GuideEntry(splitted[0], splitted[1], splitted[2]);
+                        se1.Margin = new Thickness(10, 10, 10, 0);
+
+                        sp.Children.Add(se1);
+                        seList.Add(se1);
                     }
                 }
             }

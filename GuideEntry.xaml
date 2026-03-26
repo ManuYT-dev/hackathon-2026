@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
     <Grid>
-        <Rectangle  Height="100" Fill="White" RadiusX="20" RadiusY="20"/>
+        <Rectangle  Height="100" Fill="LightGray" RadiusX="20" RadiusY="20"/>
         <Label x:Name="LabelTitel" FontSize="25" FontWeight="Bold" Margin="26,0,-26,0">
             <TextBlock Text="How to find water" TextDecorations="None"/>
         </Label>

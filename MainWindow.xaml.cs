@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Org.BouncyCastle.Pqc.Crypto.Hqc;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,10 +19,11 @@ namespace Hackathon
     public partial class MainWindow : Window
     {
         MainWindowMap mwm;
+        HandelGuide hq;
         public MainWindow()
         {
             InitializeComponent();
-            HandelGuide hq = new HandelGuide(StackPanellGuideEntry);
+            hq = new HandelGuide(StackPanellGuideEntry);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,6 +34,7 @@ namespace Hackathon
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            hq.Load("survival_tips_english.txt");
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -40,6 +43,33 @@ namespace Hackathon
             TabMap.Width = (GridMain.ActualWidth - 5) / 2;
             StackPannelGuides.Height = GridMain.ActualHeight - 100;
             ScrawllBarGuides.Height = GridMain.ActualHeight - 100;
+        }
+        private void ShowEntries(List<GuideEntry> entries)
+        {
+            StackPanellGuideEntry.Children.Clear();
+
+            foreach (GuideEntry entry in entries)
+            {
+                entry.Width = GridMain.ActualWidth - 120;
+                StackPanellGuideEntry.Children.Add(entry);
+            }
+        }
+        private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string search = TextBoxSearch.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                ShowEntries(hq.seList);
+                return;
+            }
+
+            List<GuideEntry> filtered = hq.seList
+                .Where(x =>
+                    x.Titel.ToLower().Contains(search))
+                .ToList();
+
+            ShowEntries(filtered);
         }
     }
 }

@@ -17,7 +17,7 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Background="Gray" Height="40" VerticalAlignment="Center">
                             <Label Margin="0,6,0,0" Content="Search" FontWeight="Bold"/>
-                            <TextBox Width="700" Height=" 20"/>
+                            <TextBox x:Name="TextBoxSearch" Width="700" Height="20" TextChanged="TextBoxSearch_TextChanged"/>
                         </StackPanel>
                         <StackPanel x:Name="StackPannelGuides" HorizontalAlignment="Stretch" Margin="20" Height="340">
                             <ScrollViewer x:Name="ScrawllBarGuides">
@@ -29,7 +29,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem x:Name="TabMap" Header ="Map" HorizontalAlignment ="Center">
+            <TabItem x:Name="TabMap" Header ="Map" HorizontalAlignment ="Center" >
                 <Grid Background="#FFE5E5E5">
                     <Button Content="go to water filter" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Height="66" Width="109" Click="Button_Click"/>
                 </Grid>
