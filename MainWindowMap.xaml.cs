@@ -33,9 +33,9 @@ namespace Hackathon
         {
             InitializeComponent();
 
-            LoggingWidget.ShowLoggingInMap = ActiveMode.No;
-            mapControl.Map.Widgets.Clear();
+            LoggingWidget.ShowLoggingInMap = ActiveMode.No;           
             MapInitializen();
+            mapControl.Map.Widgets.Clear();
         }
 
         public void MapInitializen()
