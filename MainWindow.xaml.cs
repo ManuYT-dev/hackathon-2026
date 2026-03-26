@@ -20,6 +20,8 @@ namespace Hackathon
         public MainWindow()
         {
             InitializeComponent();
+            ServerData.SendData();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

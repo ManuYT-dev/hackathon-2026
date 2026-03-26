@@ -33,6 +33,37 @@ namespace Hackathon
             //var client = new HttpClient();
             //var json = await client.GetStringAsync("https://ipapi.co/json/");
             //var data = JsonSerializer.Deserialize<GeoIp>(json);
+            ServerData data = new ServerData();
+            data.Lon = 9.7306;
+            data.Lat = 47.4208;
+            data.Name = "test";
+            data.Id = "test";
+            data.Watertype = "test";
+
+            string host = "potexxi.duckdns.org";
+            int port = 10220;
+            string username = "sftpuser";
+            string password = "password";
+
+            string remoteDir = "/files";
+            string localDir = @"C:\hackathon-2026\data\data.json";
+
+            using (StreamWriter writer = new StreamWriter(localDir))
+            {
+                writer.Write(JsonSerializer.Serialize(data));
+            }
+
+            using (var scp = new ScpClient(host, port, username, password))
+            {
+                scp.Connect();
+
+                using (var fs = new FileStream(localDir, FileMode.Open))
+                {
+                    scp.Upload(fs, remoteDir);
+                }
+
+                scp.Disconnect();
+            }
         }
 
         public static ServerData GetData()
