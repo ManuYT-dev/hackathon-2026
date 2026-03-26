@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Mapsui;
+using Mapsui.Projections;
+using Mapsui.Tiling;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,17 @@ namespace Hackathon
         public MainWindowMap()
         {
             InitializeComponent();
+            // Karte erstellen
+            mapControl.Map = new Map();
+
+            // OpenStreetMap Layer hinzufügen
+            mapControl.Map.Layers.Add(OpenStreetMap.CreateTileLayer());
+
+            // Startposition (Wien)
+            var position = SphericalMercator.FromLonLat(16.3738, 48.2082);
+            mapControl.Map.Navigator.FlyTo(position, 9, long);
+            
+
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hackathon"
         mc:Ignorable="d"
         Title="WindowWaterFilter" Height="450" Width="800">
-    <Grid>
+    <Canvas>
         
-    </Grid>
+    </Canvas>
 </Window>
