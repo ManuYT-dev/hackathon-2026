@@ -1,4 +1,5 @@
-﻿using Mapsui;
+﻿using HarfBuzzSharp;
+using Mapsui;
 using Mapsui.Layers;
 using Mapsui.Projections;
 using Mapsui.Styles;
@@ -44,9 +45,12 @@ namespace Hackathon
             mapControl.Map.Navigator.CenterOn(position.x, position.y);
             mapControl.Map.Navigator.ZoomTo(10);
 
+            MapPunkte mapPunkte = new MapPunkte(9.7415, 47.4125);
+            var feature = mapPunkte.PunktErstellen(mapControl);
+            var layer = new MemoryLayer { Features = new[] { feature }, Style = null };
+            mapControl.Map.Layers.Add(layer);
             
-            
-           
+
 
         }
     }
