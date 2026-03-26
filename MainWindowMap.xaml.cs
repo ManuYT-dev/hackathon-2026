@@ -35,7 +35,11 @@ namespace Hackathon
 
             LoggingWidget.ShowLoggingInMap = ActiveMode.No;
             mapControl.Map.Widgets.Clear();
+            MapInitializen();
+        }
 
+        public void MapInitializen()
+        {
             Map map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
 
@@ -49,9 +53,6 @@ namespace Hackathon
             var feature = mapPunkte.PunktErstellen(mapControl);
             var layer = new MemoryLayer { Features = new[] { feature }, Style = null };
             mapControl.Map.Layers.Add(layer);
-            
-
-
         }
     }
 }
