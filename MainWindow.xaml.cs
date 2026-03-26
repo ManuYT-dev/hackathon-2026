@@ -23,6 +23,7 @@ namespace Hackathon
             InitializeComponent();
             GuideEntry se = new GuideEntry("Hungry", "I am Hungry", "I AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRYI AM HANGRY");
             StackPanellGuideEntry.Children.Add(se);
+            ServerData.GetData();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
