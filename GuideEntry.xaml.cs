@@ -26,20 +26,28 @@ namespace Hackathon
             InitializeComponent();
         }
 
-        private void Rectangle_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle_MouseLeave(object sender, MouseEventArgs e)
+        {
+            LabelTitel.Content = new TextBlock
+            {
+                Text = "How to find water"
+            };
+        }
+
+        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            LabelTitel.Content = new TextBlock
+            {
+                Text = "How to find water",
+                TextDecorations = TextDecorations.Underline
+            };
+        }
+
+        private void Rectangle_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             gt = new GuideTab();
             gt.ShowDialog();
-        }
-
-        private void Rectangle_PreviewDragEnter(object sender, DragEventArgs e)
-        {
-            MessageBox.Show("Entry");
-        }
-
-        private void Rectangle_PreviewDragLeave(object sender, DragEventArgs e)
-        {
-            MessageBox.Show("Exit");
         }
     }
 }
