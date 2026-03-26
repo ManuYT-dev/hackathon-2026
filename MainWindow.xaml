@@ -17,7 +17,10 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Background="Gray" Height="40" VerticalAlignment="Center">
                             <Label Margin="0,6,0,0" Content="Search" FontWeight="Bold"/>
-                            <TextBox Width="700" Height=" 20"/>
+                            <TextBox x:Name="TextBoxSearch"
+                             Width="700"
+                             Height="20"
+                             TextChanged="TextBoxSearch_TextChanged"/>
                         </StackPanel>
                         <StackPanel x:Name="StackPannelGuides" HorizontalAlignment="Stretch" Margin="20" Height="340">
                             <ScrollViewer x:Name="ScrawllBarGuides">

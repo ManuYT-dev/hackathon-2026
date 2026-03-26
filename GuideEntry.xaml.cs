@@ -20,9 +20,9 @@ namespace Hackathon
     /// </summary>
     public partial class GuideEntry : UserControl
     {
-        string Titel = "Titel";
-        string SubTitel = "SubTitel";
-        string Text = "Text";
+        public string Titel = "Titel";
+        public string SubTitel = "SubTitel";
+        public string Text = "Text";
         GuideTab gt;
         public GuideEntry()
         {

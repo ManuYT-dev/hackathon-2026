@@ -44,5 +44,32 @@ namespace Hackathon
             StackPannelGuides.Height = GridMain.ActualHeight - 100;
             ScrawllBarGuides.Height = GridMain.ActualHeight - 100;
         }
+        private void ShowEntries(List<GuideEntry> entries)
+        {
+            StackPanellGuideEntry.Children.Clear();
+
+            foreach (GuideEntry entry in entries)
+            {
+                entry.Width = GridMain.ActualWidth - 120;
+                StackPanellGuideEntry.Children.Add(entry);
+            }
+        }
+        private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string search = TextBoxSearch.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                ShowEntries(hq.seList);
+                return;
+            }
+
+            List<GuideEntry> filtered = hq.seList
+                .Where(x =>
+                    x.Titel.ToLower().Contains(search))
+                .ToList();
+
+            ShowEntries(filtered);
+        }
     }
 }
