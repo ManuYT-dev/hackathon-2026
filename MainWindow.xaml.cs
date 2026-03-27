@@ -89,7 +89,9 @@ namespace Hackathon
 
         private async Task InitializeAsync()
         {
-            var (user_lat, user_lon) = await Class1.GetCoords();
+            // var (user_lat, user_lon) = await Class1.GetCoords(); // für echte coordinaten
+            // var (user_lat, user_lon) = (48.210033, 16.363449); // Dummy werte von Wien
+            var (user_lat, user_lon) = (47.27069000, 9.64287000); // Dummy werte von Rankweil
             int user_radius = 10000;
             ServerData data = new ServerData(user_lat, user_lon, user_radius);
             await data.GetWater();
@@ -99,9 +101,9 @@ namespace Hackathon
                 (double, double) tuple = (entry.lat, entry.lon);
                 locations.Add(tuple);
             }
-            MapInitializen();
 
             locations.Insert(0, (user_lat, user_lon));
+            MapInitializen();
 
             double bearing = CalculateBearing(locations[0].Item1, locations[0].Item2,
                                               locations[1].Item1, locations[1].Item2);
@@ -116,15 +118,15 @@ namespace Hackathon
             Map map = new Map();
             map.Layers.Add(OpenStreetMap.CreateTileLayer());
 
+            var (user_lat, user_lon) = locations[0];
+            locations.RemoveAt(0);
+
             mapControl.Map = map;
-            var position = SphericalMercator.FromLonLat(9.7415, 47.4125);
+            var position = SphericalMercator.FromLonLat(user_lon, user_lat);
             mapControl.Map.Navigator.OverrideZoomBounds = new MMinMax(1, 10000);
             mapControl.Map.Navigator.CenterOn(position.x, position.y);
             mapControl.Map.Navigator.ZoomTo(1);
             var features = new List<IFeature>();
-
-            var (user_lat, user_lon) = locations[0];
-            locations.RemoveAt(0);
 
             foreach ((double, double) i in locations)
             {

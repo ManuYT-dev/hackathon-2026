@@ -30,7 +30,8 @@ namespace Hackathon
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var client = new HttpClient();
-            var response = await client.PostAsync("http://10.72.8.47:8000/water/nearby", content);
+            string url = "https://presented-liver-afford-pressing.trycloudflare.com";
+            var response = await client.PostAsync($"{url}/water/nearby", content);
 
             string result = await response.Content.ReadAsStringAsync();
 
